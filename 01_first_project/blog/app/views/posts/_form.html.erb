@@ -1,0 +1,22 @@
+<!--form with é um helper que ajuda na definição de um formulário-->
+
+<%= form_with(model: post) do |post_form| %> <!--model: post => dessa forma estamos informando que o form_with vai ser referente ao nosso model post-->
+
+  <%= post_form.label :title %> <!--post_form: valor definido no bloco de iteração; .label: helper para criação de uma label(etiqueta) html; :title um simbol como parâmetro.-->
+  <%= post_form.text_field :title %> <!--.text_field: helper para criação de campo de texto; :title e label e text_field recebem o mesmo parâmetro, dessa forma o rails sabe de quem pertence esse campo.-->
+  
+  <%= post_form.label :content %>
+  <%= post_form.text_area :content, size: "60x10" %> <!--Rcebe o input; e podemos definir o ta,tamanho do input através do size-->
+
+  <%= post_form.label :publish_at %>
+  <%= post_form.datetime_local_field :publish_at %> <!--Data e hora de publicação do post-->
+
+  <%= post_form.label :author_id, 'Author' %>
+  <!--.select: Cria um select para enviar o id do post, através do form; Author.all.map => para definir as opções do post (vai trazer todos os autores cadastrados no BD, o .map vai retornar um array e dentro desse array vai ter uma lista de arrays, onde cada array vai ter o nome do author e o id)-->
+  <%= post_form.select :author_id, 
+      Author.all.map { |a| [full_name(a), a.id] },
+      selected: post.author_id %> <!--full_name é um helper criado para abstrair o código da composição do nome-->
+  <br><br>
+  <%= post_form.submit %> <!--.submit: helper para botão para enviar o form; "Search" nome dele como parâmetro.-->
+
+<% end %>

@@ -1,0 +1,26 @@
+<h1>Posts</h1>
+
+<%#= @posts %> <!--Se exibirmos a variável @posts, ela não está vazia, ela exibe um objeto do active record, por isso é necessário verificar se o tamanho dessa variável é maior que zero(@posts.size)-->
+
+<% if @posts.size > 0 %> <!--Size(tamanho) faz a mesma coisa que o length-->
+  <table> <!--Tabela-->
+    <thead> <!--Cabeçalho da tabela-->
+      <tr>
+        <th>Title</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+
+    <tbody> <!--Corpo da tabela-->
+      <% @posts.each do |post| %> <!--Se existir posts, ele vai iterar todos os posts, vai criar uma linha e exibir o title e sua data de criação formatada através do helper-->
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= time_ago_in_words(post.created_at) %> ago </td> Thousand"
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p> No results found </p>
+<% end %>
