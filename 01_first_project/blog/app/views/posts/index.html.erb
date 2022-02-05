@@ -15,7 +15,7 @@
       <% @posts.each do |post| %> <!--Se existir posts, ele vai iterar todos os posts, vai criar uma linha e exibir o title e sua data de criação formatada através do helper-->
         <tr>
           <td><%= post.title %></td>
-          <td><%= time_ago_in_words(post.created_at) %> ago </td> Thousand"
+          <td><%= time_ago_in_words(post.created_at) %> ago </td>
         </tr>
       <% end %>
     </tbody>

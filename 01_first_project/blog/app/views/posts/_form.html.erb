@@ -8,8 +8,8 @@
   <%= post_form.label :content %>
   <%= post_form.text_area :content, size: "60x10" %> <!--Rcebe o input; e podemos definir o ta,tamanho do input através do size-->
 
-  <%= post_form.label :publish_at %>
-  <%= post_form.datetime_local_field :publish_at %> <!--Data e hora de publicação do post-->
+  <%= post_form.label :published_at %>
+  <%= post_form.datetime_local_field :published_at %> <!--Data e hora de publicação do post-->
 
   <%= post_form.label :author_id, 'Author' %>
   <!--.select: Cria um select para enviar o id do post, através do form; Author.all.map => para definir as opções do post (vai trazer todos os autores cadastrados no BD, o .map vai retornar um array e dentro desse array vai ter uma lista de arrays, onde cada array vai ter o nome do author e o id)-->

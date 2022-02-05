@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  after_create :send_new_post_email # esse calback vai ser executado depois da criação de um novo pois (callback de uma action para envio de e-mail)
+  after_create :send_new_post_email # esse calback vai ser executado depois da criação de um novo post (callback de uma action para envio de e-mail)
 
   validates :title, presence: true, length: { minimum: 3, maximum: 200 }
 
