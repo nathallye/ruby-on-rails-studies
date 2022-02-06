@@ -12,6 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %> <!--.file_field => input para envio de arquivos através do form-->
+  </div>
+
+
+  <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
   </div>
@@ -24,6 +30,11 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %> <!--  multiple: true => permite o envio de mais de um input -->
   </div>
 
   <div class="actions">

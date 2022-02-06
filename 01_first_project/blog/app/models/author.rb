@@ -8,6 +8,9 @@ class Author < ApplicationRecord
   has_one :address, dependent: :destroy # tem_um :endereço (depentent: :destroy => se o author desse endereço for excluído, ele também será) 
   # se fosse uma associação do tipo has_many, ficaria assim => has_many :addresses(tem_varios :enderesços)
   has_many :posts
+  
+  has_one_attached :avatar # informando que o Autor possui uma foto de perfil
+  has_many_attached :photos # informando que o Author tem varias fotos
 
   private
   def titleize_last_name

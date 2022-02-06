@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @author.avatar.attached? %> <!--verifica se tem algum avatar atribuido ao author-->
+  <p>
+    <%= image_tag(@author.avatar, height: '200') %> <!--se tiver, vai exibir-->
+  </p>
+<% end %>
+
+
 <p>
   <strong>First name:</strong>
   <%= @author.first_name %>
@@ -14,6 +21,13 @@
   <strong>Description:</strong>
   <%= @author.description %>
 </p>
+
+<% if @author.photos.attached? %> <!--verifica se tem alguma foto atribuida ao author-->
+  <% @author.photos.each do |photo| %> <!--se tiver, vai iterar o array de photos-->
+    <%= image_tag(photo, height: '200') %> <!--e exibir cada uma-->
+  <% end %>
+  <br><br>
+<% end %>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>
